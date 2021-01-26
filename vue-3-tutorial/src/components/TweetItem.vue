@@ -5,6 +5,7 @@
       <div class="tweet-item__content">
         {{ tweet.content }}
       </div>
+      <div class="tweet-favourite" v-if="tweet.isFavourite" />
     </div>
   </div>
 </template>
