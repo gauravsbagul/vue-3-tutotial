@@ -1,47 +1,15 @@
 <template>
-  <div id="app">
-    @{{ user.userName }} - {{ fullName }} <strong>followers: </strong>
-    {{ followers }}
-    <button @click="followUser">follow</button>
+  <div id='app'>
+    <UserProfile/>
   </div>
 </template>
 
 <script>
+// eslint-disable-next-line no-unused-vars
+import UserProfile from './components/UserProfile'
 export default {
   name: "App",
-  data() {
-    return {
-      followers: 0,
-      user: {
-        id: 1,
-        userName: "gauravsbagul",
-        firstName: "gaurav",
-        lastName: "bagul",
-        emial: "g@gmail.com",
-        isAdmin: true,
-      },
-    };
-  },
-  computed: {
-    fullName() {
-      return `${this.user.firstName} ${this.user.lastName}`;
-    },
-  },
-  watch: {
-    followers(newFollowerCount, oldFollowerCOunt) {
-      if (oldFollowerCOunt < newFollowerCount) {
-        console.log(`Log: ~> ${this.user.userName} has gained the follower`);
-      }
-    },
-  },
-  methods: {
-    followUser() {
-      this.followers++;
-    },
-  },
-  mounted() {
-    this.followUser();
-  },
+  components:{UserProfile}
 };
 </script>
 
@@ -52,8 +20,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
+  min-height: 100vh;
+  background-color: #f3F5FA;
 }
 </style>
